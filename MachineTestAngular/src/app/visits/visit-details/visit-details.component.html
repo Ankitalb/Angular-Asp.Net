@@ -1,0 +1,125 @@
+
+
+<div class="row" *ngIf="!loading">
+    <div class="col-md-6">
+        <div class="container m-5 shadow p-4 mb-5" style="border-top: 10px solid #343A40;">
+            <div class="row">
+                <div class="col-md-6">
+                <p>Visit Id :</p>
+                </div>
+                <div class="col-md-6">
+                 <p>{{v.visitId}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                <p>Customer Name : </p>
+                </div>
+                <div class="col-md-6">
+                 <p>{{v.custName}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                <p>Contact Number :</p>
+                </div>
+                <div class="col-md-6">
+                 <p>{{v.contactNo}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                <p>Contact Person :</p>
+                </div>
+                <div class="col-md-6">
+                 <p>{{v.contactPerson}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                <p>Interested Product :</p>
+                </div>
+                <div class="col-md-6">
+                 <p>{{v.interestProduct}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                <p>Description :</p>
+                </div>
+                <div class="col-md-6">
+                 <p>{{v.description}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                <p>Visit Date :</p>
+                </div>
+                <div class="col-md-6">
+                 <p>{{v.visitDatetime}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                <p>Employee ID :</p>
+                </div>
+                <div class="col-md-6">
+                 <p>{{v.empId}}</p>
+                </div>
+            </div>
+            </div>
+            
+        </div>
+    <div class="col-md-6">
+        
+    <form #f="ngForm" (ngSubmit)="onSubmit()" class="form-container m-5 shadow p-4  mb-5" style="border-top: 10px solid #343A40;">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group required">
+                    <label class="control-label">Customer Name</label>
+                    <input type="text" name="name" id="name" class="form-control" [pattern]="'^[A-Za-z].*'" maxlength="20" #name="ngModel" [(ngModel)]="v.custName" required="required">
+                    <span class="text-danger" *ngIf="(!name.valid && name.touched) || name.errors?.pattern ">
+                        Please enter valid cutomer  Name
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group required">
+                    <label class="control-label">Interested Product</label>
+                    <input type="text" name="product" id="product" class="form-control" [pattern]="'^[A-Za-z].*'" maxlength="20" #name="ngModel" [(ngModel)]="v.interestProduct" required="required">
+                    <span class="text-danger" *ngIf="(!name.valid && name.touched) || name.errors?.pattern ">
+                        Please enter valid product name
+                    </span>
+                </div>
+               
+            </div>
+        </div>
+       
+         <div class="form-group required">
+            <label class="control-label">Description</label>
+            <textarea name="text" cols="30" rows="2" name="description" id="description" class="form-control" #description="ngModel" [(ngModel)]="v.description" required="required"></textarea>
+            <!-- <input type="text" name="description" id="description" class="form-control" #description="ngModel" [(ngModel)]="resource.description" required="required"> -->
+            <span class="text-danger" *ngIf="(description.touched) && description.invalid">
+                Please enter valid Description
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group  required">
+                    <label class="control-label">Status</label>
+                    <select class="form-control" name="status" id="status" #status="ngModel" [(ngModel)]="v.status" required="required">
+                        <option [value]="1">Enable</option>
+                        <option [value]="0">Disable</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4">
+                <button type="submit" style="margin-top: 8px;" class="btn btn-block btn-success" >Update</button>       
+            </div>
+        </div> 
+        <div class="row">
+          <button class=" btn btn-danger  btn-block" [routerLink]="['/visits']">Back</button>
+        </div>       
+    </form>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+
+<div class="container">
+    <table class="table table-stripped table-hover table-borderd shadow mt-5 bg-white">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Visit Id <button type="button"  class="btn btn-dark btn-sm "><i class="fa fa-sort" aria-hidden="true"></i>
+                </button></th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Contact Person</th>
+                <th scope="col">Interested Product</th>
+                <th scope="col">Employee Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let r of list"  [routerLink]="['/visits',r.visitId]" routerLinkActive="active">
+             <td>{{r.visitId}}</td>
+             <td>{{r.custName}}</td>
+             <td>{{r.contactNo}}</td>
+             <td>{{r.contactPerson}}</td>
+             <td>{{r.interestProduct}}</td>
+             <td>{{r.empId}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
